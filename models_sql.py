@@ -1,15 +1,14 @@
 import sql_data
 
 class Todos:
-    def __init__(self):
+    def __init__(self, sql_data):
+        self.sql_data = sql_data
         self.conn = sql_data.create_connection()
-        conn = sql_data.create_connection()
-        table = "project"
-        self.table = table
-        self.todos = sql_data.select_all(conn, table)
+        self.table = "project"
 
     def all(self):
-        return self.todos
+        todos = sql_data.select_all(self.conn, self.table)
+        return todos
 
     def get(self, id):
         return sql_data.select_where(self.conn, self.table, querry=id)
@@ -24,4 +23,4 @@ class Todos:
     def update(self, id, data):
         pass
 
-todos = Todos()
+todos = Todos(sql_data)

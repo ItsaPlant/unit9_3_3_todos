@@ -1,4 +1,4 @@
-    import sqlite3
+import sqlite3
 
 def create_connection(db_file):
     """ create a database connection to the SQLite database
