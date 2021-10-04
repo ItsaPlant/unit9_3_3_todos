@@ -3,7 +3,8 @@ import sql_data
 class Todos:
     def __init__(self, sql_data):
         self.sql_data = sql_data
-        self.conn = sql_data.create_connection()
+        self.db_file = "database.db"
+        self.conn = sql_data.create_connection(self.db_file)
         self.table = "project"
 
     def all(self):
